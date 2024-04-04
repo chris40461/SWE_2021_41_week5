@@ -1,0 +1,12 @@
+#!/bin/bash
+
+arrange() {
+    for file in files/*.txt; do
+        if [ -f "$file" ]; then
+            first_letter=$(basename "$file" | cut -c1 | tr '[:upper:]' '[:lower:]')
+            mv "$file" "$first_letter"/
+        fi
+    done
+}
+
+arrange
